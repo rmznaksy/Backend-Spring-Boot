@@ -15,9 +15,9 @@ import com.example.shared.GenericResponse;
 @RestController
 @RequestMapping("/api")
 public class UserAPI {
-
+	
 	private final UserService userService;
-
+	
 	public UserAPI(UserService userService) {
 		this.userService = userService;
 	}
@@ -26,7 +26,6 @@ public class UserAPI {
 	public ResponseEntity<UserViewDTO> getUserById(@PathVariable Long id) {
 		final UserViewDTO user = userService.getUserById(id);
 		return ResponseEntity.ok(user);
-
 	}
 
 	@PostMapping("v1/user")
@@ -34,5 +33,5 @@ public class UserAPI {
 		userService.createUser(userCreateDTO);
 		return ResponseEntity.ok(new GenericResponse("User Created..."));
 	}
-
+	
 }
